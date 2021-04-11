@@ -41,7 +41,7 @@ def pre_order(node):
 
 # pre_order(root)     # E,A,C,B,D,G,F,
 
-# 中序遍历：先遍历左子树，在访问自己，在遍历右子树
+# 中序遍历：先遍历左子树，在访问根节点，在遍历右子树
 def in_order(node):
     if node:
         in_order(node.left)
