@@ -26,7 +26,7 @@ class LCList(object):
 
     def append(self, elem):
         self.prepend(elem)
-        self._rear = self._rear.next   # 更新尾部作用域
+        self._rear = self._rear.next  # 更新尾部作用域
 
     def pop_pre(self):  # 前端弹出
         if self._rear is None:
@@ -49,8 +49,6 @@ class LCList(object):
             p = p.next
 
 
-
-
 l_list = LCList()
 # l_list.prepend(1)
 # l_list.prepend(2)
@@ -65,4 +63,3 @@ l_list.append(4)
 
 # l_list.pop_tail()
 l_list.printall()
-
