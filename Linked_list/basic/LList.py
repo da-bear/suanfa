@@ -82,7 +82,7 @@ class LList:
             p = p.next
         print('')
 
-    def filter(self,pred):
+    def filter(self, pred):
         p = self._head
         while p is not None:
             if pred(p.elem):

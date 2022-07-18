@@ -38,7 +38,7 @@ class LCList(object):
             self._rear.next = p.next
         return p.elem
 
-    def printall(self):
+    def print_all(self):
         if self.is_empty():
             return
         p = self._rear.next
@@ -62,4 +62,4 @@ l_list.append(3)
 l_list.append(4)
 
 # l_list.pop_tail()
-l_list.printall()
+l_list.print_all()
