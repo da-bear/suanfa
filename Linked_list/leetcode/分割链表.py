@@ -10,6 +10,7 @@ from Linked_list.link_list_basic.LList import ListNode, LList, print_node
 
 
 class Solution:
+
     @staticmethod
     def partition(head: ListNode, x: int) -> ListNode:
         # 存小于x的链表
@@ -31,14 +32,18 @@ class Solution:
             else:
                 l_p.next = h_p
                 l_p = l_p.next
-            # ?? 断开原链表中每个节点的next指针
-            # tmp = h_p.next
-            # h_p.next = None
-            # h_p = tmp
-            h_p = h_p.next
+            # 切断原链表中每个节点的的引用,如果此处不做修改，那么在循环结束后需要处理l_p.next指针
+            tmp = h_p.next
+            h_p.next = None
+            h_p = tmp
+            # h_p = h_p.next
 
+        # while循环结束后,需要将l_p.next的指针置空，因为当前节点复用的是原链表的节点，其next的指针可能指向一个小于x的节点
+        # 需要切断这个引用, 并将s_p.next 指针指向l_node.next 实现链表的拼接
+        # s_node 的next指针即为答案
+
+        # l_p.next = None
         # 连接两个链表
-        l_p.next = None  # ???????
         s_p.next = l_node.next
         return s_node.next
 
@@ -47,8 +52,8 @@ if __name__ == '__main__':
     # 构造一个链表  l_list
     l_list = LList()
     test_data = [1, 4, 3, 2, 5, 2]
-    for x in test_data:
-        l_list.append(x)
+    for e in test_data:
+        l_list.append(e)
     # 控制台打印node的元素
     print("params_l_list")
     print_node(l_list.head)

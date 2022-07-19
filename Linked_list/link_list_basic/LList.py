@@ -104,11 +104,11 @@ class LList:
         return self._head
 
 
-l_list = LList()
-l_list.append(2)
-l_list.append(3)
-l_list.append(4)
-l_list.append(5)
+# l_list = LList()
+# l_list.append(2)
+# l_list.append(3)
+# l_list.append(4)
+# l_list.append(5)
 
 # l_list.pop_tail()
 # for val in l_list.traverse():
