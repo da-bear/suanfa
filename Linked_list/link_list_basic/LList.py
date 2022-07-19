@@ -1,7 +1,17 @@
 
-class LNode(object):
-    def __init__(self, elem, next_=None):
-        self.elem = elem
+
+def print_node(p):
+    while p is not None:
+        print(p.val, end=',')
+        if p.next is None:
+            print('', end='')
+        p = p.next
+    print('')
+
+
+class ListNode(object):
+    def __init__(self, val, next_=None):
+        self.val = val
         self.next = next_
 
 
@@ -9,7 +19,7 @@ class LinkedListUnderflow(ValueError):
     pass
 
 
-# 基于节点类LNode定义一个单链表对象的类
+# 基于节点类ListNode定义一个单链表对象的类
 class LList:
     def __init__(self):
         self._head = None
@@ -17,29 +27,29 @@ class LList:
     def is_empty(self):
         return self._head is None
 
-    def prepend(self, elem):
-        self._head = LNode(elem, self._head)
+    def prepend(self, val):
+        self._head = ListNode(val, self._head)
 
-    def append(self, elem):
+    def append(self, val):
         if self._head is None:
-            self._head = LNode(elem)
+            self._head = ListNode(val)
             return None
         p = self._head
         while p.next is not None:
             p = p.next
-        p.next = LNode(elem)
+        p.next = ListNode(val)
 
     def traverse(self):
         p = self._head
         while p:
-            yield p.elem
+            yield p.val
             p = p.next
 
     def find(self, value):
         p = self._head
         while p is not None:
-            if value == p.elem:
-                return p.elem
+            if value == p.val:
+                return p.val
             p = p.next
         else:
             raise LinkedListUnderflow("no item")
@@ -55,7 +65,7 @@ class LList:
         if self._head is None:
             # 无节点引发异常
             raise LinkedListUnderflow("in pop")
-        e = self._head.elem
+        e = self._head.val
         self._head = self._head.next
         return e
 
@@ -64,19 +74,19 @@ class LList:
             raise LinkedListUnderflow("in pop last")
         p = self._head
         if p.next is None:  # 表中只有一个元素
-            e = p.elem
+            e = p.val
             self._head = None
             return e
         while p.next.next is not None:
             p = p.next
-        e = p.next.elem
+        e = p.next.val
         p.next = None
         return e
 
-    def printall(self):
+    def print_all(self):
         p = self._head
         while p is not None:
-            print(p.elem, end='')
+            print(p.val, end='')
             if p.next is None:
                 print(',', end='')
             p = p.next
@@ -85,10 +95,13 @@ class LList:
     def filter(self, pred):
         p = self._head
         while p is not None:
-            if pred(p.elem):
-                yield p.elem
+            if pred(p.val):
+                yield p.val
             p = p.next
 
+    @property
+    def head(self):
+        return self._head
 
 
 l_list = LList()
@@ -103,4 +116,4 @@ l_list.append(5)
 
 # print(l_list.length())
 # print(l_list.find(7))
-l_list.printall()
+#l_list.printall()
