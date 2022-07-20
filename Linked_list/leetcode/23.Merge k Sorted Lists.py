@@ -19,7 +19,7 @@ class Solution:
         # 虚拟头节点
         t_list = ListNode(-1)
         # 指针
-        t_p = t_list
+        p = t_list
         node_val_list = []
         for l_list in lists:
             while l_list is not None:
@@ -28,20 +28,31 @@ class Solution:
 
         tmp = sorted(node_val_list)
         for node_val in tmp:
-            if t_p:
-                while t_p.next is not None:
-                    t_p = t_p.next
-                t_p.next = ListNode(node_val)
+            if p:
+                while p.next is not None:
+                    p = p.next
+                p.next = ListNode(node_val)
 
         return t_list.next
 
     @staticmethod
     def mergeKLists_2(lists):
+        import heapq
         # 虚拟头节点
         t_list = ListNode(-1)
         # 指针
-        t_p = t_list
-        return None
+        p = t_list
+        heap = []
+        for el in lists:
+            while el is not None:
+                heapq.heappush(heap, el.val)
+                el = el.next
+        while heap and p:
+            p.next = ListNode(heapq.heappop(heap))
+            p = p.next
+
+        return t_list.next
+
 
 
 def solution_test():
@@ -75,9 +86,16 @@ def heapq_test():
     heapq.heapify(array)
     print("array:", array)
 
+    # heappop(heap)，将堆顶的数据出堆，并将堆中剩余的数据构造成新的小顶堆
+    heap_sort = [heapq.heappop(heap) for _ in range(len(heap))]
+    print("heap sort result: ", heap_sort)
+
 
 if __name__ == '__main__':
-    # s_list = solution_test()
+    s_list = solution_test()
     # res = Solution.mergeKLists_1(s_list)
     # print_node(res)
-    heapq_test()
+    #heapq_test()
+    res = Solution.mergeKLists_2(s_list)
+    print_node(res)
+
