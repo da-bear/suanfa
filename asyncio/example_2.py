@@ -7,6 +7,8 @@ async def download_image(url):
     print("开始下载:", url)
     loop = asyncio.get_event_loop()
     # requests模块默认不支持异步操作，所以就使用线程池来配合实现了。
+    # loop.run_in_executor(executor, func, *args)
+    # executor 参数应该是一个concurrent.futures.Executor 实例。如果 executor 是 None ，则使用默认执行程序
     future = loop.run_in_executor(None, requests.get, url)
     response = await future
     print('下载完成')
