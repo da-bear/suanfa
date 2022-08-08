@@ -46,7 +46,7 @@ async def main2():
         asyncio.create_task(func2(), name="n1"),
         asyncio.create_task(func2(), name="n2")
     ]
-    print("main结束")
+    print("main_2结束")
     # 当执行某协程遇到IO操作时，会自动化切换执行其他任务。
     # 此处的await是等待所有协程执行完毕，并将所有协程的返回值保存到done
     # 如果设置了timeout值，则意味着此处最多等待的秒，完成的协程返回值写入到done中，未完成则写到pending中。
