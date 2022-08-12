@@ -31,5 +31,4 @@ async def main():
     data = await fut
     print(data)
 
-
 asyncio.run(main())
