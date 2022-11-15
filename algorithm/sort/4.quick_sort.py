@@ -8,7 +8,7 @@
 问题：
     递归：会消耗一定的系统资源
 """
-from algorithm.cal_time import timeit
+from base_file.cal_time import timeit
 import random
 import sys
 

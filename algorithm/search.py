@@ -4,7 +4,7 @@
             内置函数index（）使用的是线性查找，因为二分查找需要的是排序好的数组
     二分查找:  复杂度O(logn)
 """
-from cal_time import timeit
+from base_file.cal_time import timeit
 
 
 @timeit
