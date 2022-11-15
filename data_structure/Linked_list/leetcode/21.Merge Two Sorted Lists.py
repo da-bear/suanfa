@@ -11,7 +11,7 @@
 
 """
 # 导入
-from Linked_list.link_list_basic.LList import ListNode, LList, print_node
+from data_structure.Linked_list.link_list_basic.LList import ListNode, LList, print_node
 
 
 class Solution:
