@@ -115,7 +115,7 @@ class LListExpend(LList):
 
     def pop_last(self):
         if self._head is None:          # 空表
-            raise LinkedListUnderflow("in pop list")
+            raise LinkedListUnderflow("in pop List")
         p = self._head
         if p.next is None:
             e = p.elem

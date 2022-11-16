@@ -56,7 +56,6 @@ class Queue:
         return (self.rear + 1) % self.size == self.front
 
 
-
 if __name__ == '__main__':
     # q = Queue(6)
     # for i in range(5):
