@@ -14,6 +14,7 @@ class TreeNode(object):
         self.val = val
         self.left = None
         self.right = None
+        self.parent = None
 
 
 # 前序遍历： 节点 -> 左子树 -> 右子树
