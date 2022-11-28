@@ -45,6 +45,28 @@ class BST:
             else:
                 return
 
+    def query(self, node, val):
+        if not node:
+            return None
+        if node.val > val:
+            self.query(node.left, val)
+        elif node.val < val:
+            self.query(node.right, val)
+        else:
+            return node
+
+    def query_no_rec(self, val):
+        p = self.root
+        while p:
+            if p.val > val:
+                p = p.left
+            elif p.val < val:
+                p = p.right
+            else:
+                return p
+
+        return None
+
 
 if __name__ == '__main__':
     tree = BST([3, 4, 9, 13, 8, 7, 9, 15])
