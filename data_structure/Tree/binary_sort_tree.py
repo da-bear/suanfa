@@ -119,3 +119,9 @@ class BST:
 if __name__ == '__main__':
     tree = BST([10, 3, 4, 9, 13, 8, 7, 9, 15])
     in_order(tree.root)
+    tree.delete(8)
+    print("\n")
+    in_order(tree.root)
+
+
+
