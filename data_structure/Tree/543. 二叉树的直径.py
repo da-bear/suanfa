@@ -7,7 +7,7 @@
     每一条二叉树的「直径」长度，就是一个节点的左右子树的最大深度之和
     求整棵树中的最长直径，可以遍历整棵树中的每个节点，随后通过每个节点的左右子树的最大深度计算出每个节点的直径，最后将每个直径求最大值即可
 """
-from binary_tree import TreeNode
+from binary_tree import TreeNode, root
 
 max_diameter = 0
 
@@ -32,21 +32,4 @@ def max_depth(node):
 
 
 if __name__ == '__main__':
-    a = TreeNode("A")
-    b = TreeNode("B")
-    c = TreeNode("C")
-    d = TreeNode("D")
-    e = TreeNode("E")
-    f = TreeNode("F")
-    g = TreeNode("G")
-
-    e.left = a
-    e.right = g
-    g.right = f
-    a.right = c
-    c.left = b
-    c.right = d
-
-    root = e
-
     print(diameter(root))

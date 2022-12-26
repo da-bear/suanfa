@@ -74,28 +74,27 @@ def count_node(node):
     return left_count + right_count + 1
 
 
-if __name__ == '__main__':
-    a = TreeNode("A")
-    b = TreeNode("B")
-    c = TreeNode("C")
-    d = TreeNode("D")
-    e = TreeNode("E")
-    f = TreeNode("F")
-    g = TreeNode("G")
+a = TreeNode("A")
+b = TreeNode("B")
+c = TreeNode("C")
+d = TreeNode("D")
+e = TreeNode("E")
+f = TreeNode("F")
+g = TreeNode("G")
 
-    e.left = a
-    e.right = g
-    g.right = f
-    a.right = c
-    c.left = b
-    c.right = d
+e.left = a
+e.right = g
+g.right = f
+a.right = c
+c.left = b
+c.right = d
 
-    root = e
+root = e
 
-    # print(root.val)
-    # print(root.right.val)
+# print(root.val)
+# print(root.right.val)
 
-    # pre_order(root)
-    # level_order(root)
-    # traverse(root, 1)
-    count_node(root)
+# pre_order(root)
+# level_order(root)
+# traverse(root, 1)
+# count_node(root)
