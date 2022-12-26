@@ -5,7 +5,7 @@
 二叉树题目的递归解法可以分两类思路
     第一类是遍历一遍二叉树得出答案
     第二类是通过分解问题计算出答案
-    这两类思路分别对应着 回溯算法核心框架 和 动态规划核心框架。 
+    这两类思路分别对应着 回溯算法核心框架 和 动态规划核心框架。
 
 
 综上，遇到一道二叉树的题目时的通用思考过程是：
@@ -62,25 +62,3 @@ def max_depth(node):
     return max(left_max, right_max) + 1
 
 
-
-
-
-if __name__ == '__main__':
-    a = TreeNode("A")
-    b = TreeNode("B")
-    c = TreeNode("C")
-    d = TreeNode("D")
-    e = TreeNode("E")
-    f = TreeNode("F")
-    g = TreeNode("G")
-
-    e.left = a
-    e.right = g
-    g.right = f
-    a.right = c
-    c.left = b
-    c.right = d
-
-    root = e
-
-    print(max_depth(root))

@@ -54,6 +54,26 @@ def level_order(root):
             queue.append(node.right)
 
 
+# 如果把根节点看做第 1 层，如何打印出每一个节点所在的层数？
+def traverse(node, level):
+    if node is None:
+        return
+    print("node %s 在%s层" % (node.val, level))
+    traverse(node.left, level + 1)
+    traverse(node.right, level + 1)
+
+
+# 如何打印出每个节点的左右子树各有多少节点？
+def count_node(node):
+    if node is None:
+        return 0
+    left_count = count_node(node.left)
+    right_count = count_node(node.right)
+    print("node %s left-count %s, right-count %s" % (node.val, left_count, right_count))
+
+    return left_count + right_count + 1
+
+
 if __name__ == '__main__':
     a = TreeNode("A")
     b = TreeNode("B")
@@ -76,4 +96,6 @@ if __name__ == '__main__':
     # print(root.right.val)
 
     # pre_order(root)
-    level_order(root)
+    # level_order(root)
+    # traverse(root, 1)
+    count_node(root)
