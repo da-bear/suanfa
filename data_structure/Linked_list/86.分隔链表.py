@@ -32,7 +32,6 @@ def partition(head, x):
         tmp = p.next
         p.next = None
         p = tmp
-
     # 将分隔的两段链表拼接
     p1.next = dummy2.next
 
