@@ -61,10 +61,12 @@ def mergeKLists_2(lists):
     heap = []
     for node in lists:
         while node is not None:
+            # 每添加一个元素都满足最小堆的特性
             heapq.heappush(heap, node.val)
             node = node.next
 
     while heap and p:
+        # heapq.heappop(heap) 将堆顶的数据出堆，并将剩余元素维护一个小顶堆
         p.next = LNode(heapq.heappop(heap))
         p = p.next
 
