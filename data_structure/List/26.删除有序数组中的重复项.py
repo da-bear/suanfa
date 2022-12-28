@@ -27,6 +27,7 @@ def removeDuplicates(nums):
     slow, fast = 0, 0
     for _ in range(len(nums)):
         if nums[slow] != nums[fast]:
+            # slow指针先向前一步，然后在新的位置存储nums[fast]
             slow += 1
             nums[slow] = nums[fast]
         fast += 1
