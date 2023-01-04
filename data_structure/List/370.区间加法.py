@@ -23,41 +23,7 @@
     3 - 通过差分数组进行快速的增减操作
         如果想对区间nums[i...j] (包含i and j)  的元素全部加3，那么只需要将diff[i] += 3,然后再让diff[j+1] -=3
 """
-
-
-class Difference(object):
-
-    def __init__(self, nums):
-        self.diff = self.diffList(nums)
-
-    @staticmethod
-    def diffList(nums):
-        """
-        构造差分数组
-        """
-        diff = [0 for _ in range(len(nums))]
-        diff[0] = nums[0]
-        for i in range(1, len(nums)):
-            diff[i] = nums[i] - nums[i - 1]
-        return diff
-
-    def result(self):
-        """
-        获取操作后的数组
-        """
-        res = []
-        res[0] = self.diff[0]
-        for i in range(1, len(self.diff)):
-            res[i] = res[i - 1] + self.diff[i]
-        return res
-
-    def increment(self, i, j, inc):
-        """
-        对数组某一个区间的数进行增减（包含边界值）
-        """
-        self.diff[i] += inc
-        if j + 1 <= len(self.diff):
-            self.diff[j] -= inc
+from diff_array import Difference
 
 
 def getModifiedArray(length, updates):
@@ -66,7 +32,7 @@ def getModifiedArray(length, updates):
     :param updates:对指定区间进行对应的操作
     :return: 返回操作后的数组
     """
-    df = Difference([0 for _ in range(5)])
+    df = Difference([0 for _ in range(length)])
     for u in updates:
         df.increment(u[0], u[1], u[2])
     return df.result()
