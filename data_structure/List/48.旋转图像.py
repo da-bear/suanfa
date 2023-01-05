@@ -18,7 +18,7 @@
 """
 
 
-def rotate(matrix):
+def rotate_1(matrix):
     """
     将二维矩阵matrix顺时针原地旋转90度
     """
@@ -26,7 +26,22 @@ def rotate(matrix):
     n = len(matrix)  # 行，由于是N x N 的矩阵
     for i in range(n):
         for j in range(i, n):  # 遍历对角线的一般就可以
+            # swap (matrix[i][j], matrix[j][i])
             matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+
+    for l in matrix:
+        reserve(l)
+
+
+def rotate_2(matrix):
+    """
+    将二维矩阵matrix 逆时针原地旋转90度
+    """
+    # 先将二维矩阵沿着左上右下的对角线做镜像对称
+    n = len(matrix)  # 行，由于是N x N 的矩阵
+    for i in range(n):
+        for j in range(i, n):
+            matrix[i][j], matrix[n - 1 - j][n - 1 - i] = matrix[n - 1 - j][n - 1 - i], matrix[i][j]
 
     for l in matrix:
         reserve(l)
