@@ -20,40 +20,86 @@
     get, addAtHead, addAtTail, addAtIndex 和 deleteAtIndex 的操作次数不超过 2000
 """
 
+
 class ListNode:
 
     def __init__(self, val):
         self.val = val
         self.next = None
 
+
 # 但链表
 class MyLinkedList:
 
     def __init__(self):
-        pass
+        self.head = ListNode(0)
+        self.size = 0
 
-    def get(self, index: int) -> int:
-        pass
+    def getNode(self, index):
+        p = self.head
+        for _ in range(index + 1):
+            p = p.next
+        return p
 
+    def get(self, index: int):
+        if index < 0 or index >= self.size:
+            return -1
+        p = self.getNode(index)
+        return p.val
 
-    # def addAtHead(self, val: int) -> None:
-    #
-    #
-    # def addAtTail(self, val: int) -> None:
-    #
-    #
-    # def addAtIndex(self, index: int, val: int) -> None:
-    #
-    #
-    # def deleteAtIndex(self, index: int) -> None:
+    def addAtHead(self, val: int):
+        x = ListNode(val)
+        x.next = self.head.next
+        self.head.next = x
+        self.size += 1
+
+    def addAtTail(self, val: int):
+        x = ListNode(val)
+        if self.size >= 1:
+            tail = self.getNode(self.size - 1)
+        else:
+            tail = self.head
+        tail.next = x
+        self.size += 1
+
+    def addAtIndex(self, index: int, val: int) -> None:
+        if index < 0 or index > self.size:
+            return None
+
+        if index == self.size:
+            self.addAtTail(val)
+            return
+
+        x = ListNode(val)
+        p = self.getNode(index)
+        if index - 1 >= 0:
+            tmp = self.getNode(index - 1)
+        else:
+            tmp = self.head
+
+        tmp.next = x
+        x.next = p
+        self.size += 1
+
+    def deleteAtIndex(self, index: int) -> None:
+        if index < 0 or index > self.size - 1:
+            return None
+        # 获取index 处的node
+        if index - 1 >= 0:
+            tmp = self.getNode(index - 1)
+        else:
+            tmp = self.head
+        tmp.next = tmp.next.next
+        self.size -= 1
 
 
 if __name__ == '__main__':
-    pass
     # Your MyLinkedList object will be instantiated and called as such:
-    # obj = MyLinkedList()
-    # param_1 = obj.get(index)
-    # obj.addAtHead(val)
-    # obj.addAtTail(val)
-    # obj.addAtIndex(index,val)
-    # obj.deleteAtIndex(index)
+    obj = MyLinkedList()
+    obj.addAtHead(1)
+    obj.addAtTail(3)
+    obj.addAtIndex(1, 2)
+    print(obj.get(1))
+    obj.deleteAtIndex(1)
+    print(obj.get(1))
+

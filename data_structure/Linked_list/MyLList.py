@@ -136,10 +136,10 @@ class MyLinkedList1:
         return self.size == 0
 
     def isElementIndex(self, index):
-        return 0 <= index <= self.size
+        return 0 <= index < self.size
 
     def isPositionIndex(self, index):
-        return 0 <= index < self.size
+        return 0 <= index <= self.size
 
     # --- 检查index索引位置是否可以存在元素 -------
     def checkElementIndex(self, index):
