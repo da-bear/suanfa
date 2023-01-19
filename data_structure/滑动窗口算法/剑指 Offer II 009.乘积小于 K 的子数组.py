@@ -1,7 +1,8 @@
-
 """
 给定一个正整数数组 nums和整数 k ，请找出该数组内乘积小于 k 的连续的子数组的个数。
 """
+
+
 def numSubarrayProductLessThanK(nums, k):
     left = right = 0
     # 窗口内数的乘积， 初始值为1
@@ -18,4 +19,3 @@ def numSubarrayProductLessThanK(nums, k):
         cnt += right - left
 
     return cnt
-

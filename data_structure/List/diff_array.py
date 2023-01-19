@@ -2,6 +2,7 @@
 差分数组类
 """
 
+a = list()
 
 class Difference(object):
 
