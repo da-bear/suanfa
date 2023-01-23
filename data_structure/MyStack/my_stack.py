@@ -21,7 +21,7 @@ class MyLinkedStack:
         return self.list.getLast()
 
 
-class MyLinkedStack2:
+class MyListStack:
     def __init__(self):
         self.stack = []
 
