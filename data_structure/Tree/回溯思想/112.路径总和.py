@@ -26,5 +26,3 @@ class Solution:
         self.traverse(node.left, target)
         self.traverse(node.right, target)
         self.curSum -= node.val
-
-
