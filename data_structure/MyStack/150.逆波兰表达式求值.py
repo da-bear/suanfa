@@ -29,9 +29,9 @@ def evalRPN(tokens):
             elif ch == "*":
                 stk.append(a * b)
             elif ch == "-":
-                stk.append(b / a)
+                stk.append(b - a)
             elif ch == "-":
-                stk.append(int(b - a))
+                stk.append(int(b / a))
         else:
             stk.append(int(ch))
 
