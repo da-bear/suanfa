@@ -12,4 +12,4 @@ def hasPathSum(root, targetSum):
         return False
     if root.left == root.right:
         return root.val == targetSum
-    return hasPathSum(root.left, targetSum-root.val) or hasPathSum(root.right, targetSum- root.val)
+    return hasPathSum(root.left, targetSum-root.val) or hasPathSum(root.right, targetSum - root.val)
